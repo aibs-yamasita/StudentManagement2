@@ -1,13 +1,38 @@
 package raisetech.StudentManagement;
 
+import java.util.List;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+import raisetech.StudentManagement.data.Student;
+import raisetech.StudentManagement.data.StudentsCourses;
+import raisetech.StudentManagement.repository.StudentRepository;
 
-@SpringBootTest
-class ApplicationTests {
+@SpringBootApplication
+@RestController
+public class Application{
 
-	@Test
-	void contextLoads() {
+	@Autowired
+	private StudentRepository repository;
+
+	public static void main(String[] args){
+		SpringApplication.run(Application.class,args);
+
 	}
 
+	@GetMapping("/studentList")
+	public List<Student> getStudentList(){
+		return repository.search();
+
+	}
+
+	@GetMapping("/studentCourseList")
+	public List<StudentsCourses>getStudentsCourseList(){
+		return repository.searchStudentsCourses();
+
+	}
 }
