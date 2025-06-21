@@ -18,13 +18,13 @@ public interface StudentRepository {
   /**
    * 全権検索します。
    *
-   * @return 全権検索しょた受講生情報の一覧
+   * @return 全件検索した受講生情報の一覧
    */
 
   @Select("SELECT * FROM students")
   List<Student> search();
 
   @Select("SELECT * FROM students_courses")
-  List<StudentsCourses> findAllCourses();
+  List<StudentsCourses> searchStudentsCourses();
 
 }
