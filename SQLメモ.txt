@@ -1,0 +1,22 @@
+MySQL起動
+mysql -u root -h localhost --port 3308 -p
+
+Databaseの調査
+show databases;
+
+Databaseの選択
+use xxxxxx;
+※xxxxxにはDB名
+
+テーブルの調査
+show tables;
+
+テーブルデータの表示
+SELECT * FROM xxxxx;
+※xxxxはテーブル名
+
+テーブルの構造の表示
+DESCRIBE XXXX;
+※XXXXはテーブル名
+
+
